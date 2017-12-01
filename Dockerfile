@@ -16,7 +16,7 @@ RUN \
 FROM ubuntu:17.04 AS MAIN
 COPY --from=BUILD /usr/bin/minerd /usr/bin/
 COPY --from=BUILD /build/minerd.dep_packages /
-RUN apt-get update && apt-get install -y inetutils-ping $(cat /*.dep_packages) --no-install-recommends && \
+RUN apt-get update && apt-get install -y inetutils-ping ca-certificates $(cat /*.dep_packages) --no-install-recommends && \
   apt-get clean && rm -rf /var/lib/apt/lists/* /*.dep_packages
 ENV \
   ALGO=yescrypt \
