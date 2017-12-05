@@ -2,7 +2,7 @@
 
 ```
 # Donate
-docker run -d --name zny --log-driver json-file --log-opt max-size=1M --log-opt max-file=2 kawaz/bitzeny-cpuminer
+docker run -d --restart always --name zny -e WORKER=donation --log-driver json-file --log-opt max-size=1M --log-opt max-file=2 kawaz/bitzeny-cpuminer
 
 # Easy way
 docker run -d -e USER=XXX -e WORKER=YYY kawaz/bitzeny-cpuminer
